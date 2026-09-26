@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Segmentation Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Segmentation Result</h1>
+
+        <p class="subtitle">
+            U-Net segmentation prediction
+        </p>
+
+
+        <h3>Original Image</h3>
+
+        <img class="preview" src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded image">
+
+
+        <h3>Binary Segmentation Mask</h3>
+
+        <img class="preview" src="{{ url_for('static', filename='results/' + result_filename) }}"
+            alt="Binary segmentation mask">
+
+
+        <h3>Probability Mask</h3>
+
+        <img class="preview" src="{{ url_for('static', filename='results/' + probability_filename) }}"
+            alt="Probability segmentation mask">
+
+
+        <h3>Segmentation Overlay</h3>
+
+        <img class="preview" src="{{ url_for('static', filename='results/' + overlay_filename) }}"
+            alt="Segmentation overlay">
+
+
+        <h3>Prediction Information</h3>
+
+        <p>
+            Minimum probability:
+            <strong>
+                {{ "%.4f"|format(min_probability) }}
+            </strong>
+        </p>
+
+        <p>
+            Maximum probability:
+            <strong>
+                {{ "%.4f"|format(max_probability) }}
+            </strong>
+        </p>
+
+        <p>
+            Mean probability:
+            <strong>
+                {{ "%.4f"|format(mean_probability) }}
+            </strong>
+        </p>
+
+        <p>
+            Predicted foreground:
+            <strong>
+                {{ "%.2f"|format(foreground_percentage) }}%
+            </strong>
+        </p>
+
+
+        <p>
+            <a href="/">
+                ← Try another image
+            </a>
+        </p>
+
+
+        <div class="links">
+
+            <a href="https://github.com/InfinitePraveen" target="_blank">
+                GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/infinitepraveen/" target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
