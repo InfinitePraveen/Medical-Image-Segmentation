@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>U-Net Image Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Medical Image Segmentation Demo</h1>
+    <p class="subtitle">
+        Upload an image to generate a foreground segmentation mask with a PyTorch U-Net model.
+    </p>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <br>
+        <button type="submit">Segment Image</button>
+    </form>
+
+    <div class="links">
+        <a href="https://github.com/InfinitePraveen" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/infinitepraveen/" target="_blank">LinkedIn</a>
+    </div>
+</div>
+</body>
+</html>
